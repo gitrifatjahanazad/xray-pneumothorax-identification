@@ -31,3 +31,65 @@
     transform: rotate(360deg);
   }
 }
+
+.fileUploadBtn{
+  background: black;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  height: 50px;
+  width: 200px;
+  margin-top: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fileUploadBtn input {
+  opacity: 0; 
+  border: none;
+  background: grey;
+  position: relative;  
+  width: inherit;
+  height: inherit;
+  top: -65px;
+}
+
+.fileUploadBtn input:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  }
+
+header{
+  background: aquamarine;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+}
+
+.imageSection{
+  margin-top:50px;
+  width:100%;
+}
+
+.imageSection #originalImg {
+  float: left;
+  width: 300px;
+  height: 400px;
+  background: red;
+  margin-left:10%;
+  display: none;
+}
+
+.imageSection #resultImg {
+  float: right;
+  width: 300px;
+  height: 400px;
+  background: green;
+  margin-right:10%;
+  display: none;
+}
+
+

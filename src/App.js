@@ -10,7 +10,11 @@ function App() {
     fileReaderInstance.readAsDataURL(event.target.files[0]);
     fileReaderInstance.onload = () => {
       let originalImg = fileReaderInstance.result;
+      document.querySelector("#originalImg").style.display = "block";
       document.querySelector("#originalImg").src=originalImg;
+      
+      document.querySelector("#resultImg").src=originalImg;
+      document.querySelector("#resultImg").style.display = "block";
       console.log(originalImg);
     }
 
@@ -37,9 +41,17 @@ function App() {
           Learn React
         </a>
       </header> */}
+      <header>
+        <h1>Welcome</h1>
+      </header>
       <form>
-        <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
+        <div className="fileUploadBtn">Upload Your X-Ray
+          <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
+        </div>
+        <div class="imageSection">
         <img id="originalImg" alt="original" />
+        <img id="resultImg" alt="result" />
+        </div>
       </form>
     </div>
   );
