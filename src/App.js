@@ -18,7 +18,7 @@ function App() {
       console.log(originalImg);
     }
 
-    axios.post("https://testxray.free.beeceptor.com/file", event.target.files[0], {}).then(function (res) {
+    axios.post("http://127.0.0.1:8000", event.target.files[0], {}).then(function (res) {
       console.log(res)
       if (res.status === 200)
         window.alert("File uploaded");
@@ -48,7 +48,7 @@ function App() {
         <div className="fileUploadBtn">Upload Your X-Ray
           <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
         </div>
-        <div class="imageSection">
+        <div className="imageSection">
         <img id="originalImg" alt="original" />
         <img id="resultImg" alt="result" />
         </div>
