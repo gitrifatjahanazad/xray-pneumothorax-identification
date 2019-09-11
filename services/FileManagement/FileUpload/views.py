@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from rest_framework import status
 from PIL import Image
 import json
+import base64
+from io import BytesIO
 
 @permission_classes((permissions.AllowAny,))
 class FileUploadView(APIView):
@@ -19,20 +21,16 @@ class FileUploadView(APIView):
       file_serializer = FileSerializer(data=request.data)
       print(request.FILES.values)
       print(request.FILES.values())
-    #   for f in request.FILES.values():
-    #     print(f)
-    #     p = ImageFile.Parser()
-    #     while 1:
-    #         s = f.read(1024)
-    #         print("working...")
-    #         if not s:
-    #             break
-    #         p.feed(s)
-    #     im = p.close()
-    #     im.save("/tmp/" + f.name)
       print(file_serializer.is_valid())
+      
+
+      buffered = BytesIO()
+      image = Image.open(request.data["file"])
+      image = image.rotate( 90, expand=1 )
+      image.save(buffered, format="PNG")
+      img_str = base64.b64encode(buffered.getvalue())
       if file_serializer.is_valid():
           file_serializer.save()
-          return Response(file_serializer.data, status=status.HTTP_201_CREATED)
+          return Response({"response": img_str}, status=status.HTTP_201_CREATED)
       else:
           return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)

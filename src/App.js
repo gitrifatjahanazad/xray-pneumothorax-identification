@@ -11,18 +11,29 @@ function App() {
     fileReaderInstance.onload = () => {
       let originalImg = fileReaderInstance.result;
       document.querySelector("#originalImg").style.display = "block";
-      document.querySelector("#originalImg").src=originalImg;
-      
-      document.querySelector("#resultImg").src=originalImg;
+      document.querySelector("#originalImg").src = originalImg;
+
+      document.querySelector("#resultImg").src = originalImg;
       document.querySelector("#resultImg").style.display = "block";
       console.log(originalImg);
+      var formData = new FormData();
+      var imagefile = document.querySelector('#uploadInput');
+      formData.append("file", imagefile.files[0]);
+      axios.post("http://127.0.0.1:8000", formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }).then(function (res) {
+          console.log(res)
+          let resImg = 'data:image/png;base64,' + res.data.response;
+          document.querySelector("#resultImg").src = resImg;
+          if (res.status === 200)
+            window.alert("File uploaded");
+        });
     }
 
-    axios.post("http://127.0.0.1:8000", event.target.files[0], {}).then(function (res) {
-      console.log(res)
-      if (res.status === 200)
-        window.alert("File uploaded");
-    });
+
   }
 
   return (
@@ -49,8 +60,8 @@ function App() {
           <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
         </div>
         <div className="imageSection">
-        <img id="originalImg" alt="original" />
-        <img id="resultImg" alt="result" />
+          <img id="originalImg" alt="original" />
+          <img id="resultImg" alt="result" />
         </div>
       </form>
     </div>
