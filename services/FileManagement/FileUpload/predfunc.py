@@ -19,11 +19,11 @@ from matplotlib import pyplot as plt
 from albumentations import (HorizontalFlip, ShiftScaleRotate, Normalize, Resize, Compose, GaussNoise)
 from albumentations.torch import ToTensor
 warnings.filterwarnings("ignore")
+from FileUpload import segmentation_models_pytorch as smp 
+#import segmentation_models_pytorch as smp
 
-import segmentation_models_pytorch as smp
-
-test_data_folder = "..\media\media"
-model_path = "model.pth"
+test_data_folder = "FileUpload/..\media\media"
+model_path = "FileUpload/model.pth"
 
 def run_length_decode(rle, height=1024, width=1024, fill_value=1):
     component = np.zeros((height, width), np.float32)
@@ -157,7 +157,7 @@ def provider(
     return dataloader
 
 
-model_path = "model.pth"
+model_path = "FileUpload/model.pth"
 
 
 
@@ -312,10 +312,6 @@ class Trainer(object):
         self.scheduler = ReduceLROnPlateau(self.optimizer, mode="min", patience=3, verbose=True)
         self.net = self.net.to(self.device)
         cudnn.benchmark = True
-
-        # self.losses = {phase: [] for phase in self.phases}
-        # self.iou_scores = {phase: [] for phase in self.phases}
-        # self.dice_scores = {phase: [] for phase in self.phases}
         
     def forward(self, images, targets):
         images = images.to(self.device)
@@ -334,6 +330,7 @@ class TestDataset(Dataset):
         self.size = size
         self.fnames = list(df["ImageId"])
         self.num_samples = len(self.fnames)
+        self.image = ""
         self.transform = Compose(
             [
                 Normalize(mean=mean, std=std, p=1),
@@ -344,15 +341,18 @@ class TestDataset(Dataset):
 
     def __getitem__(self, idx):
         fname = self.fnames[idx]
-        path = os.path.join(self.root, fname + ".png")
-        image = cv2.imread(path)
-        print("path:",  path)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
-        images = self.transform(image=image)["image"]
+        # path = os.path.join(self.root, fname + ".png")
+        # image = cv2.imread(path)
+        # print("path:",  path)
+        # image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
+        images = self.transform(image=self.image)["image"]
         return images
 
     def __len__(self):
-        return self.num_samples
+        return 1
+    
+    def updateImage(self, image):
+        self.image = image
 
 def post_process(probability, threshold, min_size):
     mask = cv2.threshold(probability, threshold, 1, cv2.THRESH_BINARY)[1]
@@ -366,46 +366,4 @@ def post_process(probability, threshold, min_size):
             num += 1
     return predictions, num
 ### Test Prediction
-size = 512
-mean = (0.485, 0.456, 0.406)
-std = (0.229, 0.224, 0.225)
-num_workers = 0
-batch_size = 1
-best_threshold = 0.5
-min_size = 3500
-device = torch.device("cuda:0")
-df = pd.read_csv("dummy.csv")
-testset = DataLoader(
-    TestDataset(test_data_folder, df, size, mean, std),
-    batch_size=batch_size,
-    shuffle=False,
-    num_workers=num_workers,
-    pin_memory=True,
-)
-print(len(testset))
-model = model_trainer.net
-model.eval()
-state = torch.load(model_path, map_location=lambda storage, loc: storage)
-model.load_state_dict(state["state_dict"])
 
-encoded_pixels = []
-
-for i, batch in enumerate(testset):
-    preds = torch.sigmoid(model(batch.to(device)))
-    preds = preds.detach().cpu().numpy()[:, 0, :, :] # (batch_size, 1, size, size) -> (batch_size, size, size)
-    for probability in preds:
-        if probability.shape != (1024, 1024):
-            probability = cv2.resize(probability, dsize=(1024, 1024), interpolation=cv2.INTER_LINEAR)
-        predict, num_predict = post_process(probability, best_threshold, min_size)
-        if num_predict == 0:
-            encoded_pixels.append('-1')
-        else:
-            r = run_length_encode(predict)
-            encoded_pixels.append(r)
-df['EncodedPixels'] = encoded_pixels
-df.to_csv('submission.csv', columns=['ImageId', 'EncodedPixels'], index=False)
-
-# image = cv2.imread( os.path.join(test_data_folder, 'hh.png'))
-# print(image)
-# image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
-# print(image)
