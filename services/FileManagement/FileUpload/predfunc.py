@@ -346,6 +346,7 @@ class TestDataset(Dataset):
         # print("path:",  path)
         # image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
         images = self.transform(image=self.image)["image"]
+        print("Images: ", images)
         return images
 
     def __len__(self):
@@ -364,6 +365,7 @@ def post_process(probability, threshold, min_size):
         if p.sum() > min_size:
             predictions[p] = 1
             num += 1
+        print("predictions: ", predictions)
     return predictions, num
 ### Test Prediction
 

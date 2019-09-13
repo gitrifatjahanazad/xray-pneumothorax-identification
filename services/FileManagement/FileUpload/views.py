@@ -32,11 +32,13 @@ class FileUploadView(APIView):
 
       buffered = BytesIO()
       image = Image.open(request.data["file"])
-      #print("Pil ", image)
       img = np.array(image)
-      img = cv2.resize(img, (512, 512))
+
+      img = cv2.resize(img, (1024, 1024))
       img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
-      #print("Image view: ", img)
+      
+      img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV_FULL)
+      print("Image view: ", img)
       image = image.rotate(90, expand=1)
       image.save(buffered, format="PNG")
       img_str = base64.b64encode(buffered.getvalue())
@@ -70,7 +72,6 @@ class FileUploadView(APIView):
 
       for i, batch in enumerate(testset):
         preds = torch.sigmoid(model(batch.to(device)))
-            # (batch_size, 1, size, size) -> (batch_size, size, size)
         preds = preds.detach().cpu().numpy()[:, 0, :, :]
         for probability in preds:
             if probability.shape != (1024, 1024):
@@ -86,35 +87,43 @@ class FileUploadView(APIView):
         df['EncodedPixels'] = encoded_pixels
         df.to_csv('submission.csv', columns=[
                   'ImageId', 'EncodedPixels'], index=False)
+        print("Encoded Pixels: ", df.head(5))
 
-        image = cv2.imread(os.path.join(test_data_folder, 'hh.png'))
-        print(image)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
-        print(image)
+        
+        # MASKING
+        def rle2mask(rle, width, height):
+            mask= np.zeros(width* height)
+            #mask = image
+            array = np.asarray([int(x) for x in rle.split()])
+            starts = array[0::2]
+            lengths = array[1::2]
 
-        import numpy
+            current_position = 0
+            for index, start in enumerate(starts):
+                current_position += start
+                mask[current_position:current_position+lengths[index]] = 255
+                current_position += lengths[index]
 
-        def catch_image(im):
-            print("Here I am")
-            #im = imagePointer.f
-            # image = imagePointer["file"].read()
-            # print(image)
-            # npimg = numpy.fromstring(image, numpy.uint8)
-            # image = cv2.imdecode(npimg, cv2.IMREAD_UNCHANGED)
-            # image = cv2.imread(image)
+            return mask.reshape(width, height)
 
-            # image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV_FULL)
-            # print("Image: ", image)
-            #print("Child Node: ", im)
-            #filestr = request.files['file'].read()
-        #convert string data to numpy array
-        #npimg = numpy.fromstring(filestr, numpy.uint8)
-        # convert numpy array to image
-        #img = cv2.imdecode(npimg, cv2.CV_LOAD_IMAGE_UNCHANGED)
-            #print("im: ", im)
+        masks = df['EncodedPixels']
+        print(masks.head())
+
+        img1 = np.zeros((1024,1024))
+        if(type(masks)!=str or (type(masks) == str and masks!='-1')):
+            if(type(masks) == str): masks = [masks]
+            else: 
+                masks = masks.tolist()
+            for mask in masks:
+                img1 += rle2mask(mask, 1024, 1024).T
+            img1 = cv2.resize(img1, (1024, 1024))
+            out = cv2.imencode('.png',img1)[1]
+            img_str = base64.b64encode(out)
+          
+
       if file_serializer.is_valid():
           file_serializer.save()
-          catch_image(img)
+          #catch_image(img)
           return Response({"response": img_str}, status=status.HTTP_201_CREATED)
       else:
           return Response(file_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
