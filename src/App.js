@@ -56,12 +56,18 @@ function App() {
         <h1>Welcome</h1>
       </header>
       <form>
+        <div className="imageSection">
+          <div className="originalImgSec">
+            <img id="originalImg" alt="original" />
+            <label>Original Image</label>
+          </div>
+          <div className="resultImgSec">
+            <img id="resultImg" alt="result" />
+            <label>Pneumothorax Identified Region</label>
+          </div>
+        </div>
         <div className="fileUploadBtn">Upload Your X-Ray
           <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
-        </div>
-        <div className="imageSection">
-          <img id="originalImg" alt="original" />
-          <img id="resultImg" alt="result" />
         </div>
       </form>
     </div>
