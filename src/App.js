@@ -28,8 +28,43 @@ function App() {
           console.log(res)
           let resImg = 'data:image/png;base64,' + res.data.response;
           document.querySelector("#resultImg").src = resImg;
-          if (res.status === 200)
+          if (res.status === 201)
             window.alert("File uploaded");
+            var getCanvasImage = function(img) {
+              var canvas = document.createElement('canvas');
+              var context = canvas.getContext('2d');
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              context.drawImage(img, 0, 0, img.naturalWidth,    img.naturalHeight,      // source rectangle
+              0, 0, img.naturalWidth, img.naturalHeight);                               // destination rectangle
+              
+              return canvas;
+            }
+              
+            
+            
+            
+            setTimeout(() => {
+              var originalImg = document.getElementById("originalImg");
+              var resultImg = document.getElementById("resultImg");
+              var originalCanvas = getCanvasImage(originalImg);
+              var originalImgData = originalCanvas.getContext('2d').getImageData(0, 0, originalImg.naturalWidth, originalImg.naturalHeight);
+              
+              var resultCanvas = getCanvasImage(resultImg);
+              var resultImgData = resultCanvas.getContext('2d').getImageData(0, 0, originalImg.naturalWidth, originalImg.naturalHeight);
+                for(var i = 0; i< originalImgData.data.length;i+= 4){
+                  if(resultImgData.data[i] !== 0 ||
+                    resultImgData.data[i+1] !== 0 ||
+                    resultImgData.data[i+2] !== 0){
+                      originalImgData.data[i] = 255;
+                  }
+                //imageData.data[i+1] = imageData.data[i+1] ^ 255; // Invert Green
+                //imageData.data[i+2] = imageData.data[i+2] ^ 255; // Invert Blue
+                }
+      
+                originalCanvas.getContext('2d').putImageData(originalImgData, 0, 0);
+                resultImg.src = originalCanvas.toDataURL();
+            });
         });
     }
 
