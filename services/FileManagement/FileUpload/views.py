@@ -36,12 +36,13 @@ class FileUploadView(APIView):
 
       img = cv2.resize(img, (1024, 1024))
       img = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
-      
+      img_temp = img
       img = cv2.cvtColor(img, cv2.COLOR_RGB2HSV_FULL)
       print("Image view: ", img)
       image = image.rotate(90, expand=1)
+
       image.save(buffered, format="PNG")
-      img_str = base64.b64encode(buffered.getvalue())
+      #img_str = base64.b64encode(buffered.getvalue())
 
       size = 512
       mean = (0.485, 0.456, 0.406)
@@ -114,12 +115,16 @@ class FileUploadView(APIView):
             if(type(masks) == str): masks = [masks]
             else: 
                 masks = masks.tolist()
-            for mask in masks:
-                img1 += rle2mask(mask, 1024, 1024).T
-            img1 = cv2.resize(img1, (1024, 1024))
-            out = cv2.imencode('.png',img1)[1]
-            img_str = base64.b64encode(out)
-          
+            #print("Masks to catch the error: ", masks[0])
+            if(masks[0]!= '-1'):
+                #print("ahh bug!")
+                for mask in masks:
+                    img1 += rle2mask(mask, 1024, 1024).T
+                img1 = cv2.resize(img1, (1024, 1024))
+                out = cv2.imencode('.png',img1)[1]
+                img_str = base64.b64encode(out)
+            else:
+                img_str = base64.b64encode(img_temp)
 
       if file_serializer.is_valid():
           file_serializer.save()
