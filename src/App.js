@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function App() {
   let onChangeHandler = function (event) {
+    document.querySelector(".loader").style.display = "block";
     console.log(event.target.files[0]);
     const fileReaderInstance = new FileReader();
     fileReaderInstance.readAsDataURL(event.target.files[0]);
@@ -12,7 +13,6 @@ function App() {
       let originalImg = fileReaderInstance.result;
       document.querySelector("#originalImg").style.display = "block";
       document.querySelector("#originalImg").src = originalImg;
-
       document.querySelector("#resultImg").src = originalImg;
       document.querySelector("#resultImg").style.display = "block";
       console.log(originalImg);
@@ -28,8 +28,8 @@ function App() {
           console.log(res)
           let resImg = 'data:image/png;base64,' + res.data.response;
           document.querySelector("#resultImg").src = resImg;
-          if (res.status === 201)
-            window.alert("File uploaded");
+          // if (res.status === 201)
+          //   window.alert("File uploaded");
             var getCanvasImage = function(img) {
               var canvas = document.createElement('canvas');
               var context = canvas.getContext('2d');
@@ -64,6 +64,7 @@ function App() {
       
                 originalCanvas.getContext('2d').putImageData(originalImgData, 0, 0);
                 resultImg.src = originalCanvas.toDataURL();
+                document.querySelector(".loader").style.display = "none";
             });
         });
     }
@@ -90,6 +91,7 @@ function App() {
       <header>
         <h1>Welcome</h1>
       </header>
+
       <form>
         <div className="imageSection">
           <div className="originalImgSec">
@@ -98,6 +100,7 @@ function App() {
           </div>
           <div className="resultImgSec">
             <img id="resultImg" alt="result" />
+            <img className="loader" alt= "result" src = "/loading1.gif"/>
             <label>Pneumothorax Identified Region</label>
           </div>
         </div>
