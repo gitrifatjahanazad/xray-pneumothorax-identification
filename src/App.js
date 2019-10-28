@@ -88,8 +88,8 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <header>
-        <h1>Welcome</h1>
+      <header class="sub_menu">
+        <h1 class="title">Upload X-Ray To Find Pneumothorax</h1>
       </header>
 
       <form>
