@@ -88,6 +88,7 @@ function App() {
           Learn React
         </a>
       </header> */}
+      <header class="sub_menu">
         <div class="container">
           <div class="row">
             <div class="col-lg-1">
@@ -99,6 +100,7 @@ function App() {
            
           </div>
         </div>
+      </header>
 
 {/*main*/}
       <div class="main_bar">
@@ -109,7 +111,7 @@ function App() {
           <h6 class="sub_title1">"air on the wrong side of the lung", can result in death</h6>
 
           <div class="row">
-          <div class="col-sm-3 section_1">
+          <div class="col-lg-3 section_1 featured_main">
             <p class="text-field">
               <div>
               <span class="text">A pneumothorax is an abnormal collection of air in the pleural space between the lung and the chest wall. Symptoms typically include sudden onset of sharp, one-sided chest pain and shortness of breath.</span>
@@ -125,7 +127,7 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
             <p class="text-field1"><span class="text_style">Check More On Wikipedia</span></p>
           </div>
          
-<div class="image col-sm-6">
+<div class="image col-lg-6 sub-featured">
              
             <div className="Image_Section">
               <img id="originalImg" alt="Original Image" src="x-ray.png"/>
@@ -145,7 +147,7 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 
 </div>           
 <br></br>
-<div class="col-sm-3 footer_area">
+<div class="col-lg-3 footer_area featured_sub">
 <p class="text-field">
           <div class="heading_sec">
             About This Project
@@ -163,11 +165,12 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
           </span>
         </p>
         
-  
+        <br></br>
         <p class="text-field">
-            <span class="heading_sec">Special Thanks To
-              <br></br>
-             </span>
+        <div class="heading_sec">
+        Special Thanks To
+            </div>
+            <br></br>
              <span>
              &nbsp;&nbsp;&nbsp;&nbsp;Raisul Kabir 
               <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Jesper
@@ -186,7 +189,7 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 {/*footer */}
  
     <div class="container section_style_logo">
-      <div class="row justify-content-md-center">
+      <div class="row justify-content-lg-center">
         <div class="col-md-auto">
 
         <img src="kaggle3.png" alt="logo"></img> &nbsp;&nbsp;&nbsp;&nbsp;

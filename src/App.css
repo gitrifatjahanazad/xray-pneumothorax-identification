@@ -50,6 +50,7 @@ header h1{
   display: none;
 }
 
+
 /*
 @media (min-width: 100px) and (max-width: 1000px) {
 
@@ -104,6 +105,9 @@ code {
     monospace;
 }
 */
+/*Mobile view*/
+
+
 /*header style*/
 
 body{
