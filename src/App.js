@@ -88,19 +88,17 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <header class="sub_menu">
         <div class="container">
           <div class="row">
-            <div class="col-sm-4">
-              <img class="img_style" src="favicon-32x32.png" alt="logo"></img>
+            <div class="col-lg-1">
+              <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
             </div>
-            <div class="col-sm-8">
+            <div class="col-lg-11">
               <h1 class="head_title">Upload X-Ray To Find Pneumothorax</h1>
             </div>
            
           </div>
         </div>
-      </header>
 
 {/*main*/}
       <div class="main_bar">
@@ -132,6 +130,8 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
             <div className="Image_Section">
               <img id="originalImg" alt="Original Image" src="x-ray.png"/>
               <label> </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
               <img id="resultImg" alt="result" />
               <img className="loader" alt="result" src="/loading1.gif" />
@@ -153,15 +153,16 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
             <br></br>
             <span class="text">
             &nbsp;&nbsp;&nbsp;&nbsp;This Project was developed 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;to Research Purpose of 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Brain Station 23.
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;A brain Child of kaggle 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;"SIIM-ACR Pneumothorax 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Segmentation" 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Used Unet with 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;inception resnet v2.
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;to Research Purpose of 
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Brain Station 23.
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;A brain Child of kaggle 
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;"SIIM-ACR Pneumothorax 
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Segmentation" 
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Used Unet with 
+              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;inception resnet v2.
           </span>
         </p>
+        
   
         <p class="text-field">
             <span class="heading_sec">Special Thanks To
@@ -182,14 +183,23 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 </div>
 <hr></hr>
 
-<div class="row" id="footer">
+{/*footer */}
+ 
+    <div class="container section_style_logo">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
 
-          <p><img src="kaggle.png" alt="logo"></img>
-          <img src="" alt="Brain Station 23"></img>
-          <img src="" alt="BUET"></img>
-          </p>
-          </div>
-</div>
+        <img src="kaggle3.png" alt="logo"></img> &nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="Layer_1.svg" alt="logo1" class="bs_23"></img> &nbsp;&nbsp;&nbsp;&nbsp;              
+          <img src="buet1.png" alt="BUET"></img>
+          <p class="logo_text">BUET </p>       
+                
+        </div>
+      </div>
+    </div>
+ 
+
+      </div>
       </div>
     </div>
   );
