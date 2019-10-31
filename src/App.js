@@ -88,10 +88,11 @@ function App() {
           Learn React
         </a>
       </header> */}
+      
       <header class="sub_menu">
         <div class="container">
           <div class="row">
-            <div class="col-lg-1">
+            <div class="col-lg-1 ">
               <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
             </div>
             <div class="col-lg-11">
@@ -103,15 +104,16 @@ function App() {
       </header>
 
 {/*main*/}
+
       <div class="main_bar">
         <div className="imageSection_main">
 
-
+<div class="container">
           <p class="sub_title">What is pneumothorax(Collapsed lung)?</p>
           <h6 class="sub_title1">"air on the wrong side of the lung", can result in death</h6>
 
           <div class="row">
-          <div class="col-lg-3 section_1 featured_main">
+          <div class="col-md-3 order-2 order-md-1 section_1 featured_main">
             <p class="text-field">
               <div>
               <span class="text">A pneumothorax is an abnormal collection of air in the pleural space between the lung and the chest wall. Symptoms typically include sudden onset of sharp, one-sided chest pain and shortness of breath.</span>
@@ -127,28 +129,27 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
             <p class="text-field1"><span class="text_style">Check More On Wikipedia</span></p>
           </div>
          
-<div class="image col-lg-6 sub-featured">
+<div class="col-md-6 image_sub">
              
             <div className="Image_Section">
               <img id="originalImg" alt="Original Image" src="x-ray.png"/>
               <label> </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-              <img id="resultImg" alt="result" />
-              <img className="loader" alt="result" src="/loading1.gif" />
+              &nbsp;&nbsp;&nbsp;
+             
+              <img id="originalImg" alt="Original Image" src="x-ray.png"/>
               <label></label>                         
             </div>
-            <p class="text_area">Pneumothorax X-rays</p>
-
-            <div className="fileUploadBtn">Upload Your X-Ray
+<div class="text_area">
+            <p class="texting">Pneumothorax X-rays</p>
+        </div>
+        <div className="fileUploadBtn">
+              Upload Your X-Ray
           <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
         </div>
-
 </div>           
 <br></br>
-<div class="col-lg-3 footer_area featured_sub">
-<p class="text-field">
+<div class="col-md-3 footer_area featured_sub">
+<p class="text-field2">
           <div class="heading_sec">
             About This Project
             </div>
@@ -180,8 +181,7 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
              
             </span>
           </p>
-
-
+</div>
 </div>
 </div>
 <hr></hr>
@@ -189,15 +189,20 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 {/*footer */}
  
     <div class="container section_style_logo">
-      <div class="row justify-content-lg-center">
-        <div class="col-md-auto">
-
-        <img src="kaggle3.png" alt="logo"></img> &nbsp;&nbsp;&nbsp;&nbsp;
-          <img src="Layer_1.svg" alt="logo1" class="bs_23"></img> &nbsp;&nbsp;&nbsp;&nbsp;              
-          <img src="buet1.png" alt="BUET"></img>
-          <p class="logo_text">BUET </p>       
-                
-        </div>
+      <div class="row">
+      
+      <div class="col-md-2">          
+      <img src="kaggle3.png" alt="logo"></img>
+          </div>
+          <div class="col-md-4">
+          <img src="Layer_1.svg" alt="logo1" class="bs_23"></img>
+          </div>
+          <div class="col-md-4">
+          <img src="buet.png" alt="logo"></img>
+            <h5 class="logo_text">BUET</h5>  
+          </div>
+          <div class="col-md-2"></div>
+                                
       </div>
     </div>
  
@@ -209,3 +214,5 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 }
 
 export default App;
+
+  
