@@ -91,117 +91,95 @@ function App() {
       
       <header class="sub_menu">
         <div class="container">
-          <div class="row">
-            <div class="col-lg-1 ">
+          <div class="row" id="header">
+            <div class="col-lg-2 col-sm-2">
               <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
             </div>
-            <div class="col-lg-11">
-              <h1 class="head_title">Upload X-Ray To Find Pneumothorax</h1>
+            <div class="col-lg-10 col-sm-2 my-4">
+              <h1 class="heading_text">Upload X-Ray To Find Pneumothorax</h1>
             </div>
-           
+            
           </div>
         </div>
       </header>
 
 {/*main*/}
 
-      <div class="main_bar">
-        <div className="imageSection_main">
+  <main id="main_menu">  
 
 <div class="container">
-          <p class="sub_title">What is pneumothorax(Collapsed lung)?</p>
-          <h6 class="sub_title1">"air on the wrong side of the lung", can result in death</h6>
+          <p class="h5 pt-3  texting1">What is pneumothorax(Collapsed lung)?</p>
+          <h6 class="h6  texting2">"air on the wrong side of the lung", can result in death</h6>
 
-          <div class="row">
-          <div class="col-md-3 order-2 order-md-1 section_1 featured_main">
-            <p class="text-field">
-              <div>
-              <span class="text">A pneumothorax is an abnormal collection of air in the pleural space between the lung and the chest wall. Symptoms typically include sudden onset of sharp, one-sided chest pain and shortness of breath.</span>
-            </div>
-            <br></br>
-            <div>
-           <span class="text">Pneumothorax can be caused by a blunt chest injury, damage from underlying lung disease, or most horrifying—it may occur for no obvious reason at all. On some occasions, a collapsed lung can be a life-threatening event.</span> 
-           </div>
-           <br></br>
-           <span class="text">Pneumothorax is usually diagnosed by a radiologist on a chest x-ray, and can sometimes be very difficult to confirm. An accurate AI algorithm to detect pneumothorax would be useful in a lot of clinical scenarios.
-AI could be used to triage chest radiographs for priority interpretation, or to provide a more confident diagnosis for non-radiologists.</span>
-</p>
-            <p class="text-field1"><span class="text_style">Check More On Wikipedia</span></p>
+          <div class="row text-light">
+          <div class="one col-lg-3 col-sm-2  mt-3 text-left">
+          <p class="sub_texting">
+                        A pneumothorax is an abnormal collection of air in the pleural space between the lung and the
+                        chest wall. Symptoms typically include sudden onset of sharp, one-sided chest pain and shortness
+                        of breath.</p>
+                        <p class="sub_texting">Pneumothorax can be caused by a blunt chest injury, damage from underlying lung disease, or
+                            most horrifying—it may occur for no obvious reason at all. On some occasions, a collapsed
+                            lung can be a life-threatening event. </p>
+                        <p class="sub_texting">Pneumothorax is usually diagnosed by a radiologist on a chest x-ray, and can sometimes be
+                            very difficult to confirm. An accurate AI algorithm to detect pneumothorax would be useful
+                            in a lot of clinical scenarios. AI could be used to triage chest radiographs for priority
+                            interpretation, or to provide a more confident diagnosis for non-radiologists.</p>
+                    
+                    <p class="h6 text-center sub_texting1">Check More On Wikipedia</p>
           </div>
          
-<div class="col-md-6 image_sub">
+<div class="two col-lg-6 col-sm-2 mt-3 px-4">
              
-            <div className="Image_Section">
-              <img id="originalImg" alt="Original Image" src="x-ray.png"/>
-              <label> </label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;
-             
-              <img id="originalImg" alt="Original Image" src="x-ray.png"/>
-              <label></label>                         
-            </div>
-<div class="text_area">
-            <p class="texting">Pneumothorax X-rays</p>
-        </div>
-        <div className="fileUploadBtn">
+            <section class="row justify-content-around">
+              <img id="originalImg" alt="Original Image" src="x-ray.png"/>           
+              <img id="originalImg" alt="Original Image" src="x-ray.png"/>                         
+            </section>
+
+            <p class="row justify-content-center mt-4">Pneumothorax X-rays</p>
+   
+        <section class="fileUploadBtn row justify-content-center mt-3 px-4">
               Upload Your X-Ray
           <input id="uploadInput" type="file" name="file" onChange={onChangeHandler} accept="image/x-png" />
-        </div>
+        </section>
 </div>           
-<br></br>
-<div class="col-md-3 footer_area featured_sub">
-<p class="text-field2">
-          <div class="heading_sec">
-            About This Project
-            </div>
-            <br></br>
-            <span class="text">
-            &nbsp;&nbsp;&nbsp;&nbsp;This Project was developed 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;to Research Purpose of 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Brain Station 23.
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;A brain Child of kaggle 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;"SIIM-ACR Pneumothorax 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Segmentation" 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;Used Unet with 
-              <br></br> &nbsp;&nbsp;&nbsp;&nbsp;inception resnet v2.
-          </span>
-        </p>
-        
-        <br></br>
-        <p class="text-field">
-        <div class="heading_sec">
-        Special Thanks To
-            </div>
-            <br></br>
-             <span>
-             &nbsp;&nbsp;&nbsp;&nbsp;Raisul Kabir 
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Jesper
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Siddhartha
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Ekhtiar Syed
-              <br></br>  &nbsp;&nbsp;&nbsp;&nbsp;Rishabh Agrahari
-             
-            </span>
-          </p>
-</div>
-</div>
-</div>
+
+<div class="three col-lg-3 col-sm-2 mt-3 pl-4">
+<p class="h6 texting3">About This Project</p>
+<p class="pt-3 pl-4 texting5">This Project was developed<br></br>
+                        to Research Purpose of <br></br>
+                        Brain Station 23.<br></br>
+                        A brain Child of kaggle <br></br>
+                        "SIIM-ACR Pneumothorax <br></br>
+                        Segmentation" Used Unet with <br></br>
+                        inception resnet v2.</p>
+
+                   
+                    <p class="h6 pt-4 texting4" >Special Thanks To</p>
+
+                    <p class="pt-3 pl-4 texting6">Raisul Kabir<br></br>
+                        Jesper<br></br>
+                        Siddhartha<br></br>
+                        Ekhtiar Syed<br></br>
+                        Rishabh Agrahari<br></br></p>
+                        </div>
 <hr></hr>
 
 {/*footer */}
  
     <div class="container section_style_logo">
-      <div class="row">
+      <div class="row mt-3 px-4">
       
-      <div class="col-md-2">          
+      <div class=" col-lg-2 col-sm-2">          
       <img src="kaggle3.png" alt="logo"></img>
           </div>
-          <div class="col-md-4">
+          <div class=" col-lg-4 col-sm-2">
           <img src="Layer_1.svg" alt="logo1" class="bs_23"></img>
           </div>
-          <div class="col-md-4">
+          <div class=" col-lg-4 col-sm-2">
           <img src="buet.png" alt="logo"></img>
             <h5 class="logo_text">BUET</h5>  
           </div>
-          <div class="col-md-2"></div>
+          <div class="col-lg-2 col-sm-2"></div>
                                 
       </div>
     </div>
@@ -209,10 +187,10 @@ AI could be used to triage chest radiographs for priority interpretation, or to 
 
       </div>
       </div>
+      </main>
     </div>
+    
   );
 }
 
 export default App;
-
-  
