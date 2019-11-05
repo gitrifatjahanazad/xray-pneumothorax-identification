@@ -171,6 +171,50 @@ hr.style1{
 }
 .sub_texting1{
   color: #4CDE9A;
+}
+
+
+#originalImg{
+  height: 200px;
+  width: 200px;
+}
+.texting1{
+  color: #4CDE9A;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size:40px;
+  font: weight 700;
+}
+.texting2{
+  color: #FF0000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 12px;
+}
+.texting3{
+  color: #4CDE9A;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.texting4{
+  color: #4CDE9A;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+.texting5{
+font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+.texting6{
+ font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+}
+.sub_texting{
+  font-size: 12px;
+  line-height: 20px;
+}
+.sub_texting1{
+  color: #4CDE9A;
   font-size: 14px;
 }
 
@@ -185,8 +229,12 @@ img.bs_23{
 .logo_text{  
    color: #700909;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
    font-size: 14px;
   
+   font-size: 15px;
+   font-weight: bold; 
+
 }
 img.logo{
   padding-top:5px ;
@@ -195,8 +243,10 @@ img.logo{
 .section_style_logo{
      padding-left: 30%;
 }
+
 */
 /*
+
 .fileUploadBtn{
   background: black;
   color: white;
@@ -226,6 +276,7 @@ img.logo{
   transition: all 0.4s ease 0s;
   cursor: pointer;
 }
+
 */
 .btn_style{
   border-radius: 0px 0px 0px 0px;
@@ -237,6 +288,8 @@ img.logo{
   width: 300px;
 }
 /*
+
+
 .loader {
   width: 300px;
   height: 180px;
@@ -244,7 +297,10 @@ img.logo{
   top: -400px;
   display: none;
 }
+
 */
+
+
 
 /*
 @media (min-width: 100px) and (max-width: 1000px) {
@@ -312,10 +368,26 @@ code {
 /*logo*/
 
 
+
 /*     styling New       */
 .footer_style{
   text-align: center;
 }
+
+img.bs_23{
+  width: 200px;
+}
+.logo_text{  
+   color: #700909;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 12px;
+   font-weight: bold; 
+
+}
+
+
+/*     styling New       */
+
 .heading_text{
   text-align: center;
   padding-right:240px;
@@ -325,13 +397,28 @@ code {
   background: black;
 }
 @media screen and (max-width: 579px) { 
+
   .seven {order:5}
   .six {order:7}
   .five {order:6}
+
 
   .three { order: 3; }
   .two { order: 1; }
   .one { order: 2; }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -87,32 +87,32 @@ function App() {
       <header class="d-flex justify-content-inline sub_menu">
         <div class="container">
           <div class="row" id="header">
-            <div class="col-lg-2 col-4 my-4">
+
+       
+            <div class="col-lg-2 col-2">
               <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
             </div>
-            <div class="col-lg-10 col-8 my-4">
+            <div class="col-lg-10 col-2 my-4">
+
               <h1 class="heading_text">Upload X-Ray To Find Pneumothorax</h1>
             </div>
             
-          </div>
+         
+        </div>
         </div>
       </header>
 
 {/*main*/}
-
-  <main id="main_menu" >  
+  <main id="main_menu">  
 
 <div class="container">
-
-  <div class="row text-light">
-    <div class="one col-lg-12 col-sm-2" id="services">
+      <section class="row">
+<div class="two col-lg-12 col-sm-2" id="services"> 
           <p class="h5 pt-3 texting1">What is pneumothorax(Collapsed lung)?</p>
-          </div>
-        
-          <div class="one col-lg-12 col-sm-2">
-          <p class="h6 texting2">"air on the wrong side of the lung", can result in death</p>       
-           </div> 
-         
+          <h6 class="h6 texting2">"air on the wrong side of the lung", can result in death</h6>   
+</div>
+</section>
+          <div class="row text-light">         
           <div class="three col-lg-3 col-sm-2  mt-3 text-left">
           <p class="sub_texting">
                         A pneumothorax is an abnormal collection of air in the pleural space between the lung and the
@@ -129,7 +129,7 @@ function App() {
                     <p class="h6 text-center sub_texting1">Check More On Wikipedia</p>
           </div>
          
-<div class="two col-lg-6 col-sm-2 mt-3 px-4">
+<div class="one col-lg-6 col-sm-2 mt-3 px-4">
   <section class="row d-flex justify-content-end">
   <a class="nav-link" href="#services"><button class=" d-block d-lg-none d-sm-block btn btn-default btn-circle">&nbsp;Read <br></br>More</button></a>
 
@@ -178,19 +178,22 @@ function App() {
                         Ekhtiar Syed<br></br>
                         Rishabh Agrahari<br></br></p>
                         </div>
-                        </div>
+
+                      
 <hr class="style1"></hr>
 
 {/*footer */}
  
  <footer class="footer_style mt-3">
-      <div class="row">
+      <div class="row ">
+
+
+      
 <div class="col-lg-3 col-sm-2"></div>
 
 <div class="five col-lg-2 col-sm-2">
 <img src="kaggle3.png" alt="logo"></img>
 </div>
-
 <div class="six col-lg-2 col-sm-2">
 <img src="Layer_1.svg" alt="logo1" class="bs_23"></img>
 </div>
@@ -201,10 +204,12 @@ function App() {
 </div>
 
 <div class="col-lg-3 col-sm-2"></div>
-                
+              
       </div>
+        
  </footer>
  &nbsp;
+ </div>
       </div>
       </main>
     </div>
