@@ -41,9 +41,6 @@ function App() {
             return canvas;
           }
 
-
-
-
           setTimeout(() => {
             var originalImg = document.getElementById("originalImg");
             var resultImg = document.getElementById("resultImg");
@@ -68,8 +65,6 @@ function App() {
           });
         });
     }
-
-
   }
 
   return (
@@ -89,13 +84,13 @@ function App() {
         </a>
       </header> */}
       
-      <header class="sub_menu">
+      <header class="d-flex justify-content-inline sub_menu">
         <div class="container">
           <div class="row" id="header">
-            <div class="col-lg-2 col-sm-2">
+            <div class="col-lg-2 col-4 my-4">
               <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
             </div>
-            <div class="col-lg-10 col-sm-2 my-4">
+            <div class="col-lg-10 col-8 my-4">
               <h1 class="heading_text">Upload X-Ray To Find Pneumothorax</h1>
             </div>
             
@@ -105,12 +100,12 @@ function App() {
 
 {/*main*/}
 
-  <main id="main_menu">  
+  <main id="main_menu" >  
 
 <div class="container">
 
   <div class="row text-light">
-    <div class="one col-lg-12 col-sm-2">
+    <div class="one col-lg-12 col-sm-2" id="services">
           <p class="h5 pt-3 texting1">What is pneumothorax(Collapsed lung)?</p>
           </div>
         
@@ -136,7 +131,9 @@ function App() {
          
 <div class="two col-lg-6 col-sm-2 mt-3 px-4">
   <section class="row d-flex justify-content-end">
-<button class=" d-block d-lg-none d-sm-block btn btn-default btn-circle">&nbsp;Read <br></br>More</button>
+  <a class="nav-link" href="#services"><button class=" d-block d-lg-none d-sm-block btn btn-default btn-circle">&nbsp;Read <br></br>More</button></a>
+
+
 </section>
             <section class="row justify-content-around">
          
