@@ -83,20 +83,22 @@ function App() {
           Learn React
         </a>
       </header> */}
+
       
-      <header class="d-flex justify-content-inline sub_menu">
-        <div class="container">
-          <div class="row" id="header">
-            <div class="col-lg-2 col-4 my-4">
-              <img class="img_style" src="apple-touch-icon1.png" alt="logo" class="logo"></img>
+     <header class="d-flex justify-content-inline sub_menu">
+        <div class="container my-2">
+          <div class="row align-items-center" id="header">
+            <div class="col-lg-2 col-sm-6 col-md-6 col-4 pl-5">  
+              <img class="img-fluid" src="apple-touch-icon1.png" alt="logo" class="logo"  width="90" height="90"></img>        
             </div>
-            <div class="col-lg-10 col-8 my-4">
-              <h1 class="heading_text">Upload X-Ray To Find Pneumothorax</h1>
-            </div>
-            
+        
+            <div class="col-lg-10 col-md-6 col-sm-6 col-8 mt-3 heading_text">  
+            <p class="text">Upload X-Ray To Find Pneumothorax</p>   
+            </div>      
           </div>
         </div>
       </header>
+  
 
 {/*main*/}
 
@@ -105,15 +107,13 @@ function App() {
 <div class="container">
 
   <div class="row text-light">
-    <div class="one col-lg-12 col-sm-2" id="services">
-          <p class="h5 pt-3 texting1">What is pneumothorax(Collapsed lung)?</p>
-          </div>
-        
-          <div class="one col-lg-12 col-sm-2">
-          <p class="h6 texting2">"air on the wrong side of the lung", can result in death</p>       
+    <div class="one col-lg-12 col-md-12 col-sm-2 col-2 pl-4 mt-3" id="services">
+          <p class="texting1 mt-4">What is pneumothorax (Collapsed lung)?</p>
+
+          <p class="texting2">"air on the wrong side of the lung", can result in death</p>         
            </div> 
          
-          <div class="three col-lg-3 col-sm-2  mt-3 text-left">
+          <div class="three col-lg-3 col-md-3 col-sm-2 mt-3 pl-4 text-left">
           <p class="sub_texting">
                         A pneumothorax is an abnormal collection of air in the pleural space between the lung and the
                         chest wall. Symptoms typically include sudden onset of sharp, one-sided chest pain and shortness
@@ -129,20 +129,21 @@ function App() {
                     <p class="h6 text-center sub_texting1">Check More On Wikipedia</p>
           </div>
          
-<div class="two col-lg-6 col-sm-2 mt-3 px-4">
+<div class="two col-lg-6 col-md-6 col-sm-2 mt-3 px-4">
   <section class="row d-flex justify-content-end">
-  <a class="nav-link" href="#services"><button class=" d-block d-lg-none d-sm-block btn btn-default btn-circle">&nbsp;Read <br></br>More</button></a>
+  <a class="nav-link" href="#services"><button class="d-block d-lg-none d-sm-block btn btn-default btn-circle">&nbsp;Read <br></br>More</button></a>
 
 
 </section>
             <section class="row justify-content-around">
          
-              <img id="originalImg" alt="Original Image" src="x-ray.png"/>       
+              <img class="mb-4" id="originalImg" alt="Original Image" src="x-ray.png"/> 
+                
               <img id="originalImg" alt="Original Image" src="x-ray.png"/>   
                                
             </section>
 
-            <p class="row justify-content-center mt-4">
+            <p class="row justify-content-center mt-1">
               <div class="">Pneumothorax X-rays</div>
               </p>
        
@@ -158,7 +159,7 @@ function App() {
     */}
 </div>           
 
-<div class="three col-lg-3 col-sm-2 mt-3 pl-4">
+<div class="three col-lg-3 col-md-3 col-sm-2 mt-3 pl-4">
 
 <p class="h6 texting3">About This Project</p>
 <p class="pt-3 pl-4 texting5">This Project was developed<br></br>
@@ -185,22 +186,22 @@ function App() {
  
  <footer class="footer_style mt-3">
       <div class="row">
-<div class="col-lg-3 col-sm-2"></div>
+<div class="col-lg-3 col-md-3 col-sm-2"></div>
 
-<div class="five col-lg-2 col-sm-2">
+<div class="five col-lg-2 col-md-2 col-sm-2">
 <img src="kaggle3.png" alt="logo"></img>
 </div>
 
-<div class="six col-lg-2 col-sm-2">
+<div class="six col-lg-2 col-md-3 col-sm-2">
 <img src="Layer_1.svg" alt="logo1" class="bs_23"></img>
 </div>
 
-<div class="seven col-lg-2 col-sm-2">
+<div class="seven col-lg-2 col-md-3 col-sm-2">
 <img src="buet.png" alt="logo"></img>
 <p class="logo_text"><b>BUET</b></p>  
 </div>
 
-<div class="col-lg-3 col-sm-2"></div>
+<div class="col-lg-3 col-md-2 col-sm-2"></div>
                 
       </div>
  </footer>
